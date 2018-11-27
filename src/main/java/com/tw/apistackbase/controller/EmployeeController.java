@@ -36,9 +36,9 @@ public class EmployeeController {
     public void modifyEmployee(@PathVariable int id, @RequestBody PersonalInfo personalInfo){
         employeeList.putEmployee(personalInfo,id);
     }
-    /*
+
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteEmployee(@PathVariable int id, @RequestBody PersonalInfo personalInfo){
         employeeList.deleteEmployee(personalInfo,id);
-    }*/
+    }
 }
