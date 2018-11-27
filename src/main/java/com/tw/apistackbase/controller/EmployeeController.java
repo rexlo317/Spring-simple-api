@@ -27,12 +27,12 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeList.getAllEmployee());
     }
 
-/*
     @PostMapping( produces ={"application/json"})
     public void addEmployee(@RequestBody PersonalInfo personalInfo) {
         employeeList.addEmployee(personalInfo);
     }
-    @PutMapping(path = "/id", produces = {"application/json"})
+
+/*    @PutMapping(path = "/id", produces = {"application/json"})
     public void modifyEmployee(@RequestBody PersonalInfo personalInfo){
         //employeeList.putEmployee(personalInfo);
     }
