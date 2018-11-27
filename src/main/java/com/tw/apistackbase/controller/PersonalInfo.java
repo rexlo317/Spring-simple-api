@@ -7,6 +7,8 @@ public class PersonalInfo {
     private int id;
     private String gender;
 
+    public PersonalInfo(){}
+
     public PersonalInfo(String name, int age, String gender, int id){
         this.name = name;
         this.age = age;
@@ -28,6 +30,22 @@ public class PersonalInfo {
 
     public int getId() {
         return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

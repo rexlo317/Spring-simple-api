@@ -11,26 +11,30 @@ import java.util.logging.Logger;
 /**
  * Created by jxzhong on 18/08/2017.
  */
-/*
+
 @RestController
-@PostMapping({"application/json"})
+@RequestMapping("/employee")
 public class EmployeeController {
-    private final Logger log = Logger.getLogger(this.getClass().getName());
 
+    EmployeeList employeeList;
     @Autowired
-    @PostMapping(path = "/{userName}/{age}/{gender}")
-    public void addEmployee(@PathVariable String userName, @PathVariable int age, @PathVariable String gender, @PathVariable int id, EmployeeList employeeList) {
-        employeeList.addEmployee(new PersonalInfo(userName, age, gender, id));
+    public EmployeeController(EmployeeList employeeList){
+        this.employeeList = employeeList;
     }
-}
-*/
-@RestController
-@RequestMapping("/getemployees")
-class getEmployee {
 
-    @GetMapping(produces = {"application/json"})
+    @GetMapping( produces = {"application/json"})
     public ResponseEntity<Object> getEmployee(){
-        EmployeeList employeeList = new EmployeeList();
         return ResponseEntity.ok(employeeList.getAllEmployee());
     }
+
+/*
+    @PostMapping( produces ={"application/json"})
+    public void addEmployee(@RequestBody PersonalInfo personalInfo) {
+        employeeList.addEmployee(personalInfo);
+    }
+    @PutMapping(path = "/id", produces = {"application/json"})
+    public void modifyEmployee(@RequestBody PersonalInfo personalInfo){
+        //employeeList.putEmployee(personalInfo);
+    }
+    */
 }

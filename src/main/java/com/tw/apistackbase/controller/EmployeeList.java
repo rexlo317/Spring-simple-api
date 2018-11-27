@@ -1,12 +1,12 @@
 package com.tw.apistackbase.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.swing.text.html.Option;
+import java.util.*;
 
+@Service
 public class EmployeeList {
     private List<PersonalInfo> employeeList = new ArrayList<>();
     public EmployeeList(){
@@ -21,11 +21,18 @@ public class EmployeeList {
     }
 
     public List<PersonalInfo> getAllEmployee(){
-        addEmployee(new PersonalInfo("Tom",15,"male", 1));
-        addEmployee(new PersonalInfo("Tom",15,"male", 2));
-        addEmployee(new PersonalInfo("Tom",15,"male", 3));
         return employeeList;
     }
 
-    public void updateEmployee(){}
+    public void putEmployee(PersonalInfo personalInfo, int id){
+        Optional<PersonalInfo> temp = employeeList.stream().filter(element -> element.getId()==id).findFirst();
+        employeeList.remove(employeeList.indexOf(temp));
+        employeeList.add(personalInfo);
+    }
+
+    public void deleteEmployee(PersonalInfo personalInfo, int id){
+        Optional<PersonalInfo> temp = employeeList.stream().filter(element -> element.getId()==id).findFirst();
+        employeeList.remove(employeeList.indexOf(temp));
+    }
+
 }
