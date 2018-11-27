@@ -42,4 +42,13 @@ public class EmployeeList {
         }
     }
 
+    public List<PersonalInfo> getAllEmployeeIsMale(){
+        List<PersonalInfo> maleEmployeeList = new ArrayList<>();
+        for (PersonalInfo person : employeeList){
+            if (person.getGender().equals("male")){
+                maleEmployeeList.add(person);
+            }
+        }
+        return maleEmployeeList;
+    }
 }
