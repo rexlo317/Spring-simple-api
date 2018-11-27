@@ -51,4 +51,10 @@ public class EmployeeList {
         }
         return maleEmployeeList;
     }
+
+    public List<PersonalInfo> getAllEmployeeWithPage(int page, int pageSize){
+        List<PersonalInfo> employeeListWithPage = new ArrayList<>();
+        // I dont know what the question means, does it means to print the page when 1 page can store ${pageSize} object?
+        return employeeListWithPage;
+    }
 }

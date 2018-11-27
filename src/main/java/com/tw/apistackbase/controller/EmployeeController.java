@@ -33,6 +33,10 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeList.getAllEmployee());
     }
 
+    public ResponseEntity<Object> getEmployee(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize){
+        return ResponseEntity.ok(employeeList.getAllEmployeeWithPage(page, pageSize));
+    }
+
     @PostMapping( produces ={"application/json"})
     public void addEmployee(@RequestBody PersonalInfo personalInfo) {
         employeeList.addEmployee(personalInfo);

@@ -51,4 +51,8 @@ public class CompanyController {
     public ResponseEntity<EmployeeList> getAllEmployeesOfCompany(@PathVariable int id){
         return ResponseEntity.ok(companyList.getAllEmployeesOfCompany(id));
     }
+
+    public ResponseEntity<Object> getCompany(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize){
+        return ResponseEntity.ok(companyList.getAllCompanyWithPage(page, pageSize));
+    }
 }
