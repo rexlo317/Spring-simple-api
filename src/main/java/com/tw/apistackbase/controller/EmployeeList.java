@@ -2,6 +2,7 @@ package com.tw.apistackbase.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.swing.text.html.Option;
 import java.util.*;
@@ -25,14 +26,14 @@ public class EmployeeList {
     }
 
     public void putEmployee(PersonalInfo personalInfo, int id){
-        Optional<PersonalInfo> temp = employeeList.stream().filter(element -> element.getId()==id).findFirst();
-        employeeList.remove(employeeList.indexOf(temp));
+        if(employeeList.contains(personalInfo))
+            employeeList.remove(personalInfo);
         employeeList.add(personalInfo);
     }
 
     public void deleteEmployee(PersonalInfo personalInfo, int id){
-        Optional<PersonalInfo> temp = employeeList.stream().filter(element -> element.getId()==id).findFirst();
-        employeeList.remove(employeeList.indexOf(temp));
+        if(employeeList.contains(personalInfo))
+            employeeList.remove(personalInfo);
     }
 
 }

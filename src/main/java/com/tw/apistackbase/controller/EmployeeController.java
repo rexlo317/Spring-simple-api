@@ -31,10 +31,14 @@ public class EmployeeController {
     public void addEmployee(@RequestBody PersonalInfo personalInfo) {
         employeeList.addEmployee(personalInfo);
     }
-
-/*    @PutMapping(path = "/id", produces = {"application/json"})
-    public void modifyEmployee(@RequestBody PersonalInfo personalInfo){
-        //employeeList.putEmployee(personalInfo);
+    //@PutMapping(path = "/(id)", produces = {"application/json"})
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void modifyEmployee(@PathVariable int id, @RequestBody PersonalInfo personalInfo){
+        employeeList.putEmployee(personalInfo,id);
     }
-    */
+    /*
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteEmployee(@PathVariable int id, @RequestBody PersonalInfo personalInfo){
+        employeeList.deleteEmployee(personalInfo,id);
+    }*/
 }
