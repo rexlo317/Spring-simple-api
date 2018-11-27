@@ -6,14 +6,24 @@ public class PersonalInfo {
     private int age;
     private int id;
     private String gender;
+    private int salary;
 
     public PersonalInfo(){}
 
-    public PersonalInfo(String name, int age, String gender, int id){
+    public PersonalInfo(String name, int age, String gender, int id, int salary){
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.id = id;
+        this.salary = salary;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String getName() {
