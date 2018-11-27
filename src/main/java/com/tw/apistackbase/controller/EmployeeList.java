@@ -26,14 +26,20 @@ public class EmployeeList {
     }
 
     public void putEmployee(PersonalInfo personalInfo, int id){
-        if(employeeList.contains(personalInfo))
-            employeeList.remove(personalInfo);
-        employeeList.add(personalInfo);
+        for (PersonalInfo person : employeeList){
+            if (person.getId()==id){
+                employeeList.remove(person);
+                employeeList.add(personalInfo);
+            }
+        }
     }
 
     public void deleteEmployee(PersonalInfo personalInfo, int id){
-        if(employeeList.contains(personalInfo))
-            employeeList.remove(personalInfo);
+        for (PersonalInfo person : employeeList){
+            if (person.getId()==id){
+                employeeList.remove(person);
+            }
+        }
     }
 
 }
