@@ -24,7 +24,7 @@ public class CompanyController {
 
     @GetMapping( produces = {"application/json"})
     public ResponseEntity<Object> getCompany(){
-        return ResponseEntity.ok(companyList.getAllComapny());
+        return ResponseEntity.ok(companyList.getAllCompany());
     }
 
     @PostMapping( produces ={"application/json"})
@@ -40,5 +40,15 @@ public class CompanyController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteCompany(@PathVariable int id, @RequestBody Company company){
         companyList.deleteCompany(company,id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Company> getSpecificCompany(@PathVariable int id){
+        return ResponseEntity.ok(companyList.getSpecificCompany(id));
+    }
+
+    @RequestMapping(value = "/{id}/employees", method = RequestMethod.GET)
+    public ResponseEntity<EmployeeList> getAllEmployeesOfCompany(@PathVariable int id){
+        return ResponseEntity.ok(companyList.getAllEmployeesOfCompany(id));
     }
 }

@@ -20,8 +20,27 @@ public class CompanyList {
         companyList.remove(company.getId());
     }
 
-    public List<Company> getAllComapny(){
+    public List<Company> getAllCompany(){
         return companyList;
+    }
+
+    public EmployeeList getAllEmployeesOfCompany(int id){
+        for (Company tempCompany : companyList){
+            if (tempCompany.getId()==id) {
+                System.out.println("12321312");
+                return tempCompany.getEmployees();
+            }
+        }
+        return null;
+    }
+
+    public Company getSpecificCompany(int id){
+        for (Company tempCompany : companyList){
+            if (tempCompany.getId()==id) {
+                return tempCompany;
+            }
+        }
+        return null;
     }
 
     public void putCompany(Company company, int id){
@@ -35,7 +54,7 @@ public class CompanyList {
 
     public void deleteCompany(Company company, int id){
         for (Company tempCompany : companyList){
-            if (company.getId()==id){
+            if (tempCompany.getId()==id){
                 companyList.remove(tempCompany);
             }
         }
