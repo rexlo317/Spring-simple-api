@@ -52,10 +52,13 @@ public class EmployeeList {
         return maleEmployeeList;
     }
 
-    public List<PersonalInfo> getAllEmployeeWithPage(int page, int pageSize){
+    public List<PersonalInfo> getAllEmployeeWithPage(String page, String pageSize){
         List<PersonalInfo> employeeListWithPage = new ArrayList<>();
-        for (int index=page*pageSize; index<(page+1)*pageSize; index++)
+        int pageInt = Integer.parseInt(page);
+        int pageSizeInt = Integer.parseInt(pageSize);
+        for (int index=pageInt*pageSizeInt; index<(pageInt+1)*pageSizeInt; index++)
             employeeListWithPage.add(employeeList.get(index));
+
         return employeeListWithPage;
     }
 }

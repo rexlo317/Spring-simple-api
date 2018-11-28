@@ -22,20 +22,19 @@ public class EmployeeController {
         this.employeeList = employeeList;
     }
 
-    @GetMapping( produces = {"application/json"})
+
     public ResponseEntity<Object> getEmployee(){
         return ResponseEntity.ok(employeeList.getAllEmployee());
     }
-
-    public ResponseEntity<Object> getEmployee(@RequestParam("gender") String gender){
-        if(gender.equals("male"))
+    @GetMapping( produces = {"application/json"})
+    public ResponseEntity<Object> getEmployee(@RequestParam(name = "gender",  required = false) String gender,@RequestParam(name = "page", required = false) String page, @RequestParam(name = "pageSize", required = false)String pageSize){
+        if(gender!=null && gender.equals("male"))
             return ResponseEntity.ok(employeeList.getAllEmployeeIsMale());
+        else if(page!=null & pageSize!=null)
+            return ResponseEntity.ok(employeeList.getAllEmployeeWithPage(page,pageSize));
         return ResponseEntity.ok(employeeList.getAllEmployee());
     }
 
-    public ResponseEntity<Object> getEmployee(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize){
-        return ResponseEntity.ok(employeeList.getAllEmployeeWithPage(page, pageSize));
-    }
 
     @PostMapping( produces ={"application/json"})
     public void addEmployee(@RequestBody PersonalInfo personalInfo) {

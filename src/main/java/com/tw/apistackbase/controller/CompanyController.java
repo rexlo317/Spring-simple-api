@@ -23,7 +23,9 @@ public class CompanyController {
     }
 
     @GetMapping( produces = {"application/json"})
-    public ResponseEntity<Object> getCompany(){
+    public ResponseEntity<Object> getCompany(@RequestParam(name = "page", required = false) String page, @RequestParam(name = "pageSize", required = false) String pageSize){
+        if (page != null && pageSize != null)
+            return ResponseEntity.ok(companyList.getAllCompanyWithPage(page, pageSize));
         return ResponseEntity.ok(companyList.getAllCompany());
     }
 
@@ -52,7 +54,4 @@ public class CompanyController {
         return ResponseEntity.ok(companyList.getAllEmployeesOfCompany(id));
     }
 
-    public ResponseEntity<Object> getCompany(@RequestParam("page") int page, @RequestParam("pageSize") int pageSize){
-        return ResponseEntity.ok(companyList.getAllCompanyWithPage(page, pageSize));
-    }
 }

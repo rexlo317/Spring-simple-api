@@ -60,9 +60,11 @@ public class CompanyList {
         }
     }
 
-    public List<Company> getAllCompanyWithPage(int page, int pageSize){
+    public List<Company> getAllCompanyWithPage(String page, String pageSize){
         List<Company> companyListWithPage = new ArrayList<>();
-        for (int index=page*pageSize; index<(page+1)*pageSize; index++)
+        int pageInt = Integer.parseInt(page);
+        int pageSizeInt = Integer.parseInt(pageSize);
+        for (int index=pageInt*pageSizeInt; index<(pageInt+1)*pageSizeInt; index++)
             companyListWithPage.add(companyList.get(index));
         return companyListWithPage;
     }
